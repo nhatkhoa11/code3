@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mẹ 20/10 Hạnh Phúc - Đặng Thị Thanh Hòa</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #ffeef2, #f3e5f5);
+            color: #8c2a4e;
+            position: relative;
+        }
+
+        /* Dải chữ/Caption chạy chéo nền cho Mẹ */
+        .diagonal-container {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            pointer-events: none;
+            z-index: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            transform: rotate(-35deg);
+            opacity: 0.16;
+        }
+
+        .marquee {
+            display: flex;
+            width: max-content;
+            white-space: nowrap;
+            animation: moveDiag 25s linear infinite;
+        }
+
+        .marquee:nth-child(even) {
+            animation-direction: reverse;
+            animation-duration: 30s;
+        }
+
+        .marquee span {
+            font-family: Georgia, serif;
+            font-size: clamp(22px, 4vw, 48px);
+            font-weight: bold;
+            padding-right: 40px;
+            letter-spacing: 1px;
+        }
+
+        @keyframes moveDiag {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* Thiệp chính */
+        .card {
+            position: relative;
+            z-index: 1;
+            width: min(90%, 390px);
+            padding: 26px 22px 34px 22px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 22px;
+            box-shadow: 0 15px 35px rgba(140, 42, 78, 0.15);
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 26px;
+            margin-bottom: 4px;
+            color: #8c2a4e;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            margin-bottom: 16px;
+            color: #b05c7b;
+            letter-spacing: 0.5px;
+        }
+
+        /* Khung chứa ảnh tự động co giãn vừa khít chiều ngang */
+        .photo-area {
+            width: fit-content;
+            max-width: 100%;
+            height: 200px;
+            margin: 0 auto 16px auto;
+            border: 2px dashed #e8a3c0;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #fff0f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .photo-area:hover, .photo-area.dragover {
+            border-color: #c84b75;
+            transform: scale(1.02);
+        }
+
+        .photo-area img {
+            height: 100%;
+            width: auto;
+            max-width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        #file-input {
+            display: none;
+        }
+
+        button {
+            padding: 11px 26px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #d8527f, #b83b68);
+            color: white;
+            cursor: pointer;
+            font-size: 13.5px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(184, 59, 104, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #b83b68, #8c2a4e);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(140, 42, 78, 0.4);
+        }
+
+        /* Bức thư chúc Mẹ */
+        #wish {
+            display: none;
+            margin-top: 16px;
+            animation: appear 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+            text-align: center;
+        }
+
+        #wish h2 {
+            font-family: Georgia, serif;
+            font-size: 19px;
+            margin-bottom: 10px;
+            color: #8c2a4e;
+        }
+
+        #wish p {
+            font-size: 13.5px;
+            line-height: 1.7;
+            color: #4a2030;
+        }
+
+        .sender-tag {
+            position: absolute;
+            bottom: 10px;
+            right: 16px;
+            font-size: 11px;
+            color: #b05c7b;
+            font-style: italic;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 22px 18px 30px 18px;
+            }
+            .photo-area {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Dải chữ chạy nền dành riêng cho Mẹ Đặng Thị Thanh Hòa -->
+    <div class="diagonal-container">
+        <div class="marquee">
+            <span>🌷 Mẹ Đặng Thị Thanh Hòa 🌷 Chúc Mẹ luôn bình an & hạnh phúc 🌷</span>
+            <span>🌷 Mẹ Đặng Thị Thanh Hòa 🌷 Chúc Mẹ luôn bình an & hạnh phúc 🌷</span>
+        </div>
+        <div class="marquee">
+            <span>💖 Cảm ơn Mẹ vì tất cả 💖 Happy Vietnamese Women's Day 💖</span>
+            <span>💖 Cảm ơn Mẹ vì tất cả 💖 Happy Vietnamese Women's Day 💖</span>
+        </div>
+        <div class="marquee">
+            <span>🌷 Mẹ Đặng Thị Thanh Hòa 🌷 Kính chúc Mẹ nhiều sức khỏe 🌷</span>
+            <span>🌷 Mẹ Đặng Thị Thanh Hòa 🌷 Kính chúc Mẹ nhiều sức khỏe 🌷</span>
+        </div>
+        <div class="marquee">
+            <span>✨ Chúc Mẹ yêu mỗi ngày đều tràn ngập niềm vui & nụ cười ✨ 20.10 ✨</span>
+            <span>✨ Chúc Mẹ yêu mỗi ngày đều tràn ngập niềm vui & nụ cười ✨ 20.10 ✨</span>
+        </div>
+        <div class="marquee">
+            <span>🌷 Mẹ Đặng Thị Thanh Hòa 🌷 Con yêu Mẹ thật nhiều 🌷</span>
+            <span>🌷 Mẹ Đặng Thị Thanh Hòa 🌷 Con yêu Mẹ thật nhiều 🌷</span>
+        </div>
+    </div>
+
+    <!-- Nội dung thiệp chính -->
+    <div class="card">
+        <h1>Happy Women's Day 🌷</h1>
+        <p class="subtitle">20 October · Dành Tặng Mẹ Yêu</p>
+
+        <!-- Khung chứa ảnh Mẹ (Bấm vào để tải ảnh) -->
+        <div class="photo-area" id="photo-area" onclick="triggerFileInput()">
+            <img id="preview-img" src="anh.jpg" alt="Ảnh của bạn" onerror="this.onerror=null; this.src='https://via.placeholder.com/200x200?text=Bam+vao+de+chon+anh';">        </div>
+
+        <!-- Input chọn ảnh ẩn -->
+        <input type="file" id="file-input" accept="image/*" onchange="loadPhoto(event)">
+
+        <button onclick="openWish()">Mở thư gửi Mẹ 🌷</button>
+
+        <div id="wish">
+            <h2>Gửi Mẹ Đặng Thị Thanh Hòa 🌷</h2>
+            <p>
+                Nhân ngày 20/10, con chúc Mẹ luôn thật nhiều sức khỏe, bình an và luôn nở nụ cười rạng rỡ trên môi. <br>
+                Chúc mẹ luôn hạnh phúc!
+            </p>
+        </div>
+
+        <div class="sender-tag">
+            Con của Mẹ 🐧
+        </div>
+    </div>
+
+    <script>
+        function openWish() {
+            const wish = document.getElementById("wish");
+            const button = document.querySelector("button");
+
+            wish.style.display = "block";
+            button.style.display = "none";
+        }
+
+        function triggerFileInput() {
+            document.getElementById('file-input').click();
+        }
+
+        function loadPhoto(event) {
+            const file = event.target.files[0];
+            if (file) {
+                displayImage(file);
+            }
+        }
+
+        function displayImage(file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.getElementById('preview-img');
+                img.src = e.target.result;
+                img.style.display = 'block';
+            }
+            reader.readAsDataURL(file);
+        }
+
+        const photoArea = document.getElementById('photo-area');
+
+        photoArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            photoArea.classList.add('dragover');
+        });
+
+        photoArea.addEventListener('dragleave', () => {
+            photoArea.classList.remove('dragover');
+        });
+
+        photoArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            photoArea.classList.remove('dragover');
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                displayImage(e.dataTransfer.files[0]);
+            }
+        });
+    </script>
+</body>
+</html>
